@@ -1,0 +1,11 @@
+# Packages
+ &PACKAGES
+ useCAL         = .TRUE.,
+ useEXF         = .TRUE.,
+ useSEAICE      = .TRUE.,
+ useKPP         = .TRUE.,
+ useGMREDI      = .TRUE.,
+ useFRAZIL      = .TRUE.,
+ useTIDES       = .TRUE.,
+ useDiagnostics = .TRUE.,
+ /
