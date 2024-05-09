@@ -8,3 +8,11 @@ https://github.com/MITgcm-contrib/ecco_darwin/tree/master/v05/llc270
 Use 45x45x362 tile size from here:
 https://github.com/MITgcm-contrib/ecco_darwin/blob/master/v05/llc270/code/SIZE.h_45x45x362
 https://github.com/MITgcm-contrib/ecco_darwin/blob/master/v05/llc270/input/data.exch2_362
+
+mkdir build
+cd build
+cp ../code/SIZE.h_snxxsnyxnprocs SIZE.h
+../../MITgcm/tools/genmake2 -of=/home3/sreich/llc_hires/llc_1080/code/linux_amd64_ifort+mpi_ice_nas -mpi -mods=../code -rd=../../MITgcm
+make depend
+make -j 4
+mv mitgcmuv mitgcmuv_snxxsnyxnprocs
