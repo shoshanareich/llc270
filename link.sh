@@ -38,7 +38,7 @@ codedir=$basedir/code${whichcode}
 builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
 inputdir=$basedir/input${whichcode}
 
-workdir=$scratchdir/run${whichcode}
+workdir=$scratchdir/run${whichcode}_2
 
 mkdir $workdir
 cd $workdir
@@ -50,7 +50,8 @@ ln -sf /nobackup/hzhang1/forcing/era5 .
 #--- 4. linking binary ---------
 
 ln -sf /nobackup/dmenemen/forcing/SPICE/kernels .
-ln -sf /home3/sreich/MITgcm_c68w/llc270/run_template/* .
+ln -sf /nobackup/dmenemen/tarballs/llc_1080/run_template/runoff1p2472-360x180x12.bin .
+ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/* .
 
 
 #
@@ -71,6 +72,9 @@ cp -f ${builddir}/Makefile ./
 #    cp -f ${pickupdir}/pickup${extpickup}.${pickupts1}.data ./pickup.${pickupts1}.data
 #    cp -f ${pickupdir}/pickup${extpickup}.${pickupts1}.meta ./pickup.${pickupts1}.meta
 #  fi
+
+mkdir -p $workdir/diags/state_avg_2d
+mkdir -p $workdir/diags/state_avg_3d
 
 #--- 9. make a list of all linked files ------
 

@@ -57,7 +57,8 @@ ln -sf /nobackup/hzhang1/forcing/era5 .
 #--- 4. linking binary ---------
 
 ln -sf /nobackup/dmenemen/forcing/SPICE/kernels .
-ln -sf /home3/sreich/MITgcm_c68w/llc270/run_template/* .
+ln -sf /nobackup/dmenemen/tarballs/llc_1080/run_template/runoff1p2472-360x180x12.bin .
+ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/* .
 
 
 #
