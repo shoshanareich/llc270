@@ -1,3 +1,10 @@
+TO DO:
+1. Fix diagnostics package issue
+2. Fix theta from pickup issue
+	a. works with uniform T/S (tref, sref)
+	b. stalls with T/S from diagnostics /nobackup/dcarrol2/v05_latest/darwin3/run/diags/monthly/*0000525960*
+	c. fails (zeros) with T/S from pickup
+
 Using bathymetry and IC's for Jan. 1, 2012 from run here: 
 /nobackup/dcarrol2/v05_latest/darwin3/run/pickup*.0000525960.data 
 /nobackup/dcarrol2/v05_latest/darwin3/run/bathy270_filled_noCaspian_r4
