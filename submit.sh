@@ -2,7 +2,7 @@
 #PBS -q normal
 #PBS -N mitgcm
 #PBS -l select=19:ncpus=20:model=ivy
-#PBS -l walltime=8:00:00
+#PBS -l walltime=00:20:00
 #PBS -o llc270.out
 #PBS -e llc270.err
 
@@ -42,7 +42,8 @@ jobfile=submit${whichcode}.bash
 basedir=/home3/sreich/MITgcm_c68w/llc270/
 scratchdir=/nobackup/sreich/llc270_c68w_runs/
 codedir=$basedir/code${whichcode}
-builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
+#builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
+builddir=$basedir/build${whichcode}_debug
 inputdir=$basedir/input${whichcode}
 
 workdir=$scratchdir/run${whichcode}
@@ -69,7 +70,8 @@ mv data.exch2_${snx}x${sny}x${nprocs} data.exch2
 mv data.exf_era5 data.exf
 
 #--- 7. executable --------
-cp -f ${builddir}/mitgcmuv_${snx}x${sny}x${nprocs}${mitgcmext}${forwadj} ./mitgcmuv${forwadj}
+#cp -f ${builddir}/mitgcmuv_${snx}x${sny}x${nprocs}${mitgcmext}${forwadj} ./mitgcmuv${forwadj}
+cp -f ${builddir}/mitgcmuv_debug ./mitgcmuv${forwadj}
 cp -f ${builddir}/Makefile ./
 
 #--- 8. pickups -----------

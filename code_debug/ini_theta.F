@@ -50,7 +50,7 @@ C     i,j,k  :: Loop counters
       CHARACTER*(MAX_LEN_MBUF) msgBuf
 CEOP
 
-      WRITE(*,'(A)') 'tRef'
+C      WRITE(*,'(A)') 'k, tRef'
 
 C--   Initialise temperature field to the vertical reference profile
       DO bj = myByLo(myThid), myByHi(myThid)
@@ -59,8 +59,8 @@ C--   Initialise temperature field to the vertical reference profile
          DO j=1-OLy,sNy+OLy
           DO i=1-OLx,sNx+OLx
            theta(i,j,k,bi,bj) = tRef(k)
-           write(*, '(I9)')
-     &     tRef(k)
+C           write(*, '(I9,A,E16.8)')
+C     &     k, ', ', tRef(k)
           ENDDO
          ENDDO
         ENDDO
@@ -85,7 +85,7 @@ C--   Initialise temperature field to the vertical reference profile
         _EXCH_XYZ_RL(theta,myThid)
       ENDIF
 
-       WRITE(*,'(A)') 'maskC, theta'
+      WRITE(*,'(A)') 'maskC, theta'
 C--   Apply mask and test consistency
       localWarnings=0
       DO bj = myByLo(myThid), myByHi(myThid)
@@ -94,9 +94,9 @@ C--   Apply mask and test consistency
          IF ( maskIniTemp ) THEN
           DO j=1-OLy,sNy+OLy
            DO i=1-OLx,sNx+OLx
+            IF (maskC(i,j,k,bi,bj).EQ.0.) theta(i,j,k,bi,bj) = 0.
             write(*, '(E16.8,A,E16.8)')
      &        maskC(i,j,k,bi,bj), ', ', theta(i,j,k,bi,bj)
-            IF (maskC(i,j,k,bi,bj).EQ.0.) theta(i,j,k,bi,bj) = 0.
            ENDDO
           ENDDO
          ENDIF

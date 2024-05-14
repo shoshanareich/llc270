@@ -7,5 +7,5 @@
  useGMREDI      = .TRUE.,
  useFRAZIL      = .TRUE.,
  useTIDES       = .TRUE.,
- useDiagnostics = .TRUE.,
+# useDiagnostics = .TRUE.,
  /

@@ -38,7 +38,7 @@ codedir=$basedir/code${whichcode}
 builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
 inputdir=$basedir/input${whichcode}
 
-workdir=$scratchdir/run${whichcode}_2
+workdir=$scratchdir/run${whichcode}_3
 
 mkdir $workdir
 cd $workdir
@@ -72,6 +72,13 @@ cp -f ${builddir}/Makefile ./
 #    cp -f ${pickupdir}/pickup${extpickup}.${pickupts1}.data ./pickup.${pickupts1}.data
 #    cp -f ${pickupdir}/pickup${extpickup}.${pickupts1}.meta ./pickup.${pickupts1}.meta
 #  fi
+# pickupdir=/nobackup/dcarrol2/v05_latest/darwin3/run/
+# cp -f ${pickupdir}/pickup.0000525960.data ./pickup.0000000001.data
+# cp -f ${pickupdir}/pickup.0000525960.meta ./pickup.0000000001.meta
+# cp -f ${pickupdir}/pickup_seaice.0000525960.data ./pickup_seaice.0000000001.data
+# cp -f ${pickupdir}/pickup_seaice.0000525960.meta ./pickup_seaice.0000000001.meta
+# cp -f ${pickupdir}/pickup_ggl90.0000525960.data ./pickup_ggl90.0000000001.data
+# cp -f ${pickupdir}/pickup_ggl90.0000525960.meta ./pickup_ggl90.0000000001.meta
 
 mkdir -p $workdir/diags/state_avg_2d
 mkdir -p $workdir/diags/state_avg_3d
