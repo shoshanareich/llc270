@@ -1,0 +1,14 @@
+# Packages
+ &PACKAGES
+ useCAL   = .TRUE.,
+ useEXF   = .TRUE.,
+ useSEAICE= .TRUE.,
+ useGGL90 = .TRUE.,
+ useGMREDI= .TRUE.,
+ useCTRL  = .TRUE.,
+ useSMOOTH= .TRUE.,
+ useSALT_PlUME=.TRUE.,
+ useDiagnostics=.TRUE.,
+ usePTRACERS   = .TRUE.,
+ useGCHEM      = .TRUE.,
+ /
