@@ -1,3 +1,5 @@
 build*/*
 run_template/*
 ecco_darwin/*
+*.err
+*.out

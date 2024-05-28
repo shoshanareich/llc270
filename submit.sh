@@ -1,10 +1,14 @@
 #!/bin/bash
-#PBS -q normal
+#PBS -q devel 
 #PBS -N mitgcm
 #PBS -l select=19:ncpus=20:model=ivy
-#PBS -l walltime=00:20:00
+#PBS -l walltime=01:30:00
 #PBS -o llc270.out
 #PBS -e llc270.err
+#PBS -M sreich@utexas.edu
+#PBS -m bae
+
+
 
 #--- 0.load modules ------
 #ulimit -s unlimited
@@ -30,6 +34,7 @@ sny=45
 #pickupts1="0001051920"
 extpickup=
 forwadj=
+niter="0000028992"
 
 # --------------------------------------------
 #whichcode="_ad_obsfit"
@@ -42,11 +47,10 @@ jobfile=submit${whichcode}.bash
 basedir=/home3/sreich/MITgcm_c68w/llc270/
 scratchdir=/nobackup/sreich/llc270_c68w_runs/
 codedir=$basedir/code${whichcode}
-#builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
-builddir=$basedir/build${whichcode}_debug
+builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
 inputdir=$basedir/input${whichcode}
 
-workdir=$scratchdir/run${whichcode}
+workdir=$scratchdir/run${whichcode}_pk${niter}_600s_nouv
 
 mkdir $workdir
 cd $workdir
@@ -59,7 +63,20 @@ ln -sf /nobackup/hzhang1/forcing/era5 .
 
 ln -sf /nobackup/dmenemen/forcing/SPICE/kernels .
 ln -sf /nobackup/dmenemen/tarballs/llc_1080/run_template/runoff1p2472-360x180x12.bin .
-ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/* .
+#ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/* .
+ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/bathy270_filled_noCaspian_r4 .
+ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/tile* .
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/Eta.${niter}.data ./Eta.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/Salt.${niter}.data ./Salt.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/Theta.${niter}.data ./Theta.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/U.${niter}.data ./U.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/V.${niter}.data ./V.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIarea.${niter}.data ./SIarea.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIheff.${niter}.data ./SIheff.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIhsalt.${niter}.data ./SIhsalt.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIhsnow.${niter}.data ./SIhsnow.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIuice.${niter}.data ./SIuice.data
+# ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIvice.${niter}.data ./SIvice.data
 
 
 #
@@ -70,8 +87,7 @@ mv data.exch2_${snx}x${sny}x${nprocs} data.exch2
 mv data.exf_era5 data.exf
 
 #--- 7. executable --------
-#cp -f ${builddir}/mitgcmuv_${snx}x${sny}x${nprocs}${mitgcmext}${forwadj} ./mitgcmuv${forwadj}
-cp -f ${builddir}/mitgcmuv_debug ./mitgcmuv${forwadj}
+cp -f ${builddir}/mitgcmuv_${snx}x${sny}x${nprocs}${mitgcmext}${forwadj} ./mitgcmuv${forwadj}
 cp -f ${builddir}/Makefile ./
 
 #--- 8. pickups -----------
@@ -81,6 +97,11 @@ cp -f ${builddir}/Makefile ./
 #    cp -f ${pickupdir}/pickup${extpickup}.${pickupts1}.data ./pickup.${pickupts1}.data
 #    cp -f ${pickupdir}/pickup${extpickup}.${pickupts1}.meta ./pickup.${pickupts1}.meta
 #  fi
+pickupdir=/nobackup/sreich/llc270_c68w_runs/run_pk0000019440_450s_nouv/
+cp -f ${pickupdir}/pickup.${niter}.data ./pickup.0000021744.data
+cp -f ${pickupdir}/pickup.${niter}.meta ./pickup.0000021744.meta
+cp -f ${pickupdir}/pickup_seaice.${niter}.data ./pickup_seaice.0000021744.data
+cp -f ${pickupdir}/pickup_seaice.${niter}.meta ./pickup_seaice.0000021744.meta
 
 mkdir -p $workdir/diags/state_avg_2d
 mkdir -p $workdir/diags/state_avg_3d
