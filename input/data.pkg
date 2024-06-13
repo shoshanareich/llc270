@@ -6,6 +6,8 @@
  useKPP         = .TRUE.,
  useGMREDI      = .TRUE.,
  useFRAZIL      = .TRUE.,
- useTIDES       = .TRUE.,
+# useTIDES       = .TRUE.,
+ useOBSFIT      = .TRUE.,
+ useECCO        = .TRUE.,
 # useDiagnostics = .TRUE.,
  /

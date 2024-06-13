@@ -61,4 +61,7 @@
       HeffFile = 'SIheff.data',
       uIceFile = 'SIuice.data',
       vIceFile = 'SIvice.data',
- &
+ /
+
+ &SEAICE_PARM02
+ /

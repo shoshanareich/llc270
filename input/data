@@ -34,6 +34,8 @@
  hFacMin=0.3,
  hFacInf=0.1,
  hFacSup=5.,
+ select_rStar=2,
+ nonlinFreeSurf=4,
  rhonil=1027.5,
  rhoConstFresh=999.8,
  convertFW2Salt=-1.,
