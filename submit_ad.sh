@@ -1,9 +1,9 @@
 #!/bin/bash
-#PBS -q low 
+#PBS -q devel 
 #PBS -N mitgcm
-###PBS -l select=19:ncpus=20:model=ivy
-#PBS -l select=16:ncpus=24:model=has
-#PBS -l walltime=04:00:00
+##PBS -l select=16:ncpus=24:model=has
+#PBS -l select=32:ncpus=24:model=has
+#PBS -l walltime=00:10:00
 #PBS -o llc270.out
 #PBS -e llc270.err
 #PBS -M sreich@utexas.edu
@@ -29,9 +29,12 @@ ulimit -u hard
 #---- 1.set variables ------
 #note for bash: can not have any space around =
 
-nprocs=362
-snx=45
-sny=45
+nprocs=767
+snx=30
+sny=30
+#nprocs=362
+#snx=45
+#sny=45
 #pickupts1="0001051920"
 extpickup=
 forwadj=
@@ -39,7 +42,7 @@ niter="0000841536"
 
 # --------------------------------------------
 #whichcode="_ad_obsfit"
-whichcode="_ad"
+whichcode="_sens"
 # --------------------------------------------
 
 jobfile=submit${whichcode}.bash
@@ -48,10 +51,11 @@ jobfile=submit${whichcode}.bash
 basedir=/home3/sreich/MITgcm_c68w/llc270/
 scratchdir=/nobackup/sreich/llc270_c68w_runs/
 codedir=$basedir/code${whichcode}
+#builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
 builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
 inputdir=$basedir/input${whichcode}
 
-workdir=$scratchdir/run${whichcode}_pk${niter}_ke_2
+workdir=$scratchdir/run${whichcode}_pk${niter}_u_2
 
 mkdir $workdir
 cd $workdir
@@ -59,6 +63,7 @@ cd $workdir
 
 #--- 3. link forcing -------------
 ln -sf /nobackup/hzhang1/forcing/era5 .
+ln -sf /nobackup/hzhang1/forcing/era_xx_it42_v2 .
 
 #--- 4. linking binary ---------
 

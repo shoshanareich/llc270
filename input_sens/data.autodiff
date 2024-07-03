@@ -1,0 +1,28 @@
+# =========================
+# pkg AUTODIFF parameters :
+# =========================
+#  inAdExact :: get an exact adjoint (no approximation) (def=.True.)
+#
+ &AUTODIFF_PARM01
+## inAdExact = .FALSE.,
+## default is true
+# useSALT_PLUMEinAdMode = .FALSE.,
+## default is true
+ useKPPinAdMode = .FALSE.,
+## default is true
+# useGMRediInAdMode = .TRUE.,
+# inAddiffKhT  = 1.E3,
+# inAddiffKhS  = 1.E3,
+# inAddiffK4T  = 0.E10,
+# inAddiffK4S  = 0.E10,
+# outAddiffKhT = 0.E1,
+# outAddiffKhS = 0.E1,
+# outAddiffK4T = 0.E10,
+# outAddiffK4S = 0.E10,
+## CAB MAKE SURE THERE IS NO SWITCH FOR DYNAMICS,only Freedrift
+ useSEAICEinAdMode = .FALSE.,
+## outSEAICEadjMODE    = 0,
+## inSEAICEadjMODE    = -1,
+# viscFacInFw = 1.0,
+# viscFacInAd = 10.0,
+ &

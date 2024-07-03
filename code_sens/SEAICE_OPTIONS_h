@@ -101,7 +101,7 @@ C     enable advection of sea ice momentum
 # undef SEAICE_ALLOW_MOM_ADVECTION
 
 C     enable JFNK code by defining the following flag
-# define SEAICE_ALLOW_JFNK
+# undef SEAICE_ALLOW_JFNK
 
 C     enable Krylov code by defining the following flag
 # undef SEAICE_ALLOW_KRYLOV

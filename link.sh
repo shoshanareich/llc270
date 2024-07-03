@@ -17,9 +17,9 @@ ulimit -u hard
 #---- 1.set variables ------
 #note for bash: can not have any space around =
 
-nprocs=767
-snx=30
-sny=30
+nprocs=362
+snx=45
+sny=45
 #pickupts1="0001051920"
 extpickup=
 forwadj=
@@ -37,9 +37,9 @@ basedir=/home3/sreich/MITgcm_c68w/llc270/
 scratchdir=/nobackup/sreich/llc270_c68w_runs/
 codedir=$basedir/code${whichcode}
 builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
-inputdir=$basedir/input${whichcode}
+inputdir=$basedir/input${whichcode}_sens
 
-workdir=$scratchdir/run${whichcode}_pk${niter}_obsfit_2
+workdir=$scratchdir/run${whichcode}_pk${niter}_SIadv_test
 
 mkdir $workdir
 cd $workdir
@@ -66,7 +66,7 @@ ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIheff.${niter}.data ./SIh
 ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIhsnow.${niter}.data ./SIhsnow.data
 ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIuice.${niter}.data ./SIuice.data
 ln -sf /nobackup/sreich/llc270_c68w_runs/run_template/SIvice.${niter}.data ./SIvice.data
-ln -sf /nobackup/sreich/swot/swot_obsfit_L3/swot_cycles_009_llc270_30_test_obsfit.nc .
+ln -sf /nobackup/sreich/swot/swot_obsfit_L3/swot_cycles_009_llc270_45_test_obsfit.nc .
 
 
 

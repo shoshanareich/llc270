@@ -35,10 +35,10 @@ C o Include pressure loading code
 #define ATMOSPHERIC_LOADING
 
 C o Include/exclude balancing surface forcing fluxes code
-#undef ALLOW_BALANCE_FLUXES
+#define ALLOW_BALANCE_FLUXES
 
 C o Include/exclude balancing surface forcing relaxation code
-#undef ALLOW_BALANCE_RELAX
+#define ALLOW_BALANCE_RELAX
 
 C o Include/exclude checking for negative salinity
 #undef CHECK_SALINITY_FOR_NEGATIVE_VALUES
@@ -107,11 +107,11 @@ C-- Model formulation options:
 
 C o Allow/exclude "Exact Convervation" of fluid in Free-Surface formulation
 C   that ensures that d/dt(eta) is exactly equal to - Div.Transport
-#define EXACT_CONSERV
+#undef EXACT_CONSERV
 
 C o Allow the use of Non-Linear Free-Surface formulation
 C   this implies that grid-cell thickness (hFactors) varies with time
-#define NONLIN_FRSURF
+#undef NONLIN_FRSURF
 C o Disable code for rStar coordinate and/or code for Sigma coordinate
 C#define DISABLE_RSTAR_CODE
 C#define DISABLE_SIGMA_CODE

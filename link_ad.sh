@@ -27,7 +27,7 @@ niter="0000841536"
 
 # --------------------------------------------
 #whichcode="_ad_obsfit"
-whichcode="_ad"
+whichcode="_sens"
 # --------------------------------------------
 
 jobfile=submit${whichcode}.bash
@@ -35,11 +35,12 @@ jobfile=submit${whichcode}.bash
 #--- 2.set dir ------------
 basedir=/home3/sreich/MITgcm_c68w/llc270/
 scratchdir=/nobackup/sreich/llc270_c68w_runs/
-codedir=$basedir/code${whichcode}
+codedir=$basedir/code${whichcode}_mod
+#builddir=$basedir/build${whichcode}_lfs_${snx}x${sny}x${nprocs}
 builddir=$basedir/build${whichcode}_${snx}x${sny}x${nprocs}
 inputdir=$basedir/input${whichcode}
 
-workdir=$scratchdir/run${whichcode}_pk${niter}_ke_lfs
+workdir=$scratchdir/run${whichcode}_pk${niter}_ke_hz_mod_42days
 
 mkdir $workdir
 cd $workdir
@@ -47,6 +48,7 @@ cd $workdir
 
 #--- 3. link forcing -------------
 ln -sf /nobackup/hzhang1/forcing/era5 .
+ln -sf /nobackup/hzhang1/forcing/era_xx_it42_v2 .
 
 #--- 4. linking binary ---------
 

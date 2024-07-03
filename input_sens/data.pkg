@@ -8,6 +8,8 @@
  useFRAZIL      = .TRUE.,
 
 # useDiagnostics = .TRUE.,
- useOBSFIT      = .TRUE.,
+
+ useCTRL        = .TRUE.,
  useECCO        = .TRUE.,
+ useAUTODIFF    = .TRUE.,
  /

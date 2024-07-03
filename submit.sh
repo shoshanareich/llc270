@@ -1,8 +1,8 @@
 #!/bin/bash
-#PBS -q devel 
+#PBS -q normal
 #PBS -N mitgcm
 #PBS -l select=16:ncpus=24:model=has
-#PBS -l walltime=00:45:00
+#PBS -l walltime=01:00:00
 #PBS -o llc270.out
 #PBS -e llc270.err
 #PBS -M sreich@utexas.edu

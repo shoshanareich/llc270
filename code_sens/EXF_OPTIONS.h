@@ -169,11 +169,11 @@ C-  Bulk formulae related flags.
 #define ALLOW_ATM_TEMP
 #define ALLOW_ATM_WIND
 #define ALLOW_DOWNWARD_RADIATION
-#ifdef ALLOW_ATM_TEMP
+#if (defined (ALLOW_ATM_TEMP) || defined (ALLOW_ATM_WIND))
 C Note: To use ALLOW_BULKFORMULAE or EXF_READ_EVAP, needs #define ALLOW_ATM_TEMP
 # define ALLOW_BULKFORMULAE
 C use Large and Yeager (2004) modification to Large and Pond bulk formulae
-# undef  ALLOW_BULK_LARGEYEAGER04
+# define ALLOW_BULK_LARGEYEAGER04
 C use drag formulation of Large and Yeager (2009), Climate Dyn., 33, pp 341-364
 # undef  ALLOW_DRAG_LARGEYEAGER09
 # undef  EXF_READ_EVAP
@@ -198,6 +198,7 @@ C       and ATMOSPHERIC_LOADING need to be defined
 C-  Zenith Angle/Albedo related flags.
 #ifdef ALLOW_DOWNWARD_RADIATION
 # define ALLOW_ZENITHANGLE
+#  undef ALLOW_ZENITHANGLE_BOUNDSWDOWN
 #endif
 
 C-  Use ocean_emissivity*lwdown in lwFlux. This flag should be defined
